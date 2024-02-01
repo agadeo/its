@@ -17,8 +17,8 @@
       <div class="br-pagebody">
         <div class="br-section-wrapper">
           <h6 class="br-section-label">Data KRS</h6><hr>
-          <a href="/variabel/tambah"><button class="btn btn-info">Tambah Matakuliah</button></a>
-          <a href="/variabel/tambah"><button class="btn btn-warning">Cetak KRS </button></a><hr>
+          <a href="/krs/add/<?= $data2['nim']; ?>"><button class="btn btn-info">Tambah Matakuliah</button></a>
+          <a href="/krs/cetak"><button class="btn btn-warning">Cetak KRS </button></a><hr>
           <div class="table-wrapper">
             <table id="datatable1" class="table display responsive nowrap">
               <thead>

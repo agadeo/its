@@ -22,4 +22,16 @@ class Matakuliah_Model extends Model
          ->get()->getResultArray(); 
     }
 
+    public function getdrop()
+    {
+       $query = $this->db->query('select * from matakuliah');
+       return $query->getResult();
+    }
+
+    public function get_by_mhs()
+    {
+         return $this->db->table('mahasiswa')
+         ->get()->getResultArray(); 
+    }
+
 }

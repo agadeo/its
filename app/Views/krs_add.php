@@ -8,70 +8,53 @@
 
     <!-- ########## START: MAIN PANEL ########## -->
     <div class="br-mainpanel">
+      <div class="br-pageheader">
+        <nav class="breadcrumb pd-0 mg-0 tx-12">
+          <a class="breadcrumb-item" href="index.html">Bracket</a>
+          <a class="breadcrumb-item" href="#">Forms</a>
+          <span class="breadcrumb-item active">Text Editor</span>
+        </nav>
+      </div><!-- br-pageheader -->
       <div class="br-pagetitle">
         <div>
-          
         </div>
       </div><!-- d-flex -->
 
       <div class="br-pagebody">
+      <div class="br-pagebody">
         <div class="br-section-wrapper">
-          <h6 class="br-section-label">Data Matakuliah</h6>
-          <div class="table-wrapper">
-            <table id="datatable1" class="table display responsive nowrap">
-              <thead>
-                <tr>
-                  <th class="wd-10p">No</th>
-                  <th class="wd-20p">Kode</th>
-                  <th class="wd-20p">Matakuliah</th>
-                  <th class="wd-10p">Jurusan</th>
-                  <th class="wd-20p">Semester</th>
-                  <th class="wd-20p">Sks</th>
-                  <th class="wd-15p">Aksi</th>
-                </tr>
-              </thead>
-              
-              <tbody><?php $no=1; foreach ($data as $b) { ?>
-                <tr>
-                  <td><?= $no;?></td>
-                  <td><?= $b['kode'];?></td>
-                  <td><span style="text-transform:uppercase"><?= $b['matakuliah'];?></span></td>
-                  <td><?= $b['nama_jurusan'];?></td>
-                  <td><?= $b['semester'];?></td>
-                  <td><?= $b['sks'];?></td>
-                  <td><a href="<?= base_url('Nilai/MK/'.$b['kode'].'') ?>"><button class="btn btn-warning">Tambah Nilai</button></a>
-                    </td>
-                </tr><?php $no++; } ?>
-              </tbody>
-            </table>
+          <h6 class="br-section-label">KRS Online</h6>
+          <p class="br-section-text">Nama : <?= $data2['nama']; ?><br>NIM &nbsp;&nbsp;&nbsp;: <?= $data2['nim']; ?></p>
 
-          </div><!-- table-wrapper -->          
+          <form>
+          <div class="form-layout form-layout-1">
+            <div class="row mg-b-25">
+  
+              <div class="col-lg-12">
+                <div class="form-group">
+                  <label class="form-control-label">Mata Kuliah: <span class="tx-danger">*</span></label>
 
+                  <select class="form-control select2" required name="mk" >
+                    <option label="Pilih Aspek"></option>
+                           <?php foreach($cities as $city){?>
+                              <option value="<?php echo $city->id_matakuliah;?>"><span style="text-transform:uppercase"><?php echo $city->matakuliah;?></span></option>"
+                           <?php }?>
+                  </select>
+                  <input value="<?= $data2['nim']; ?>" name="nim" hidden>
+                 
+                </div>
+              </div><!-- col-4 -->
+            </div><!-- row -->
 
+            <div class="form-layout-footer">
+              <button class="btn btn-info">Simpan</button>
+              <button class="btn btn-secondary">Cancel</button>
+            </div><!-- form-layout-footer -->
+          </div><!-- form-layout -->
+          </form>
+        </div><!-- br-section-wrapper -->
       </div><!-- br-pagebody -->
-          <!-- SMALL MODAL -->
-          <div id="modaldemo2" class="modal fade">
-            <div class="modal-dialog modal-sm modal-dialog-centered" role="document">
-              <div class="modal-content bd-0 tx-14">
-                <div class="modal-header pd-x-20">
-                  <h6 class="tx-14 mg-b-0 tx-uppercase tx-inverse tx-bold">Notice</h6>
-                  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true">&times;</span>
-                  </button>
-                </div>
-                <div class="modal-body pd-20">
-                  <p class="mg-b-5">Apakah yakin data ingin dihapus?</p>
-                </div>
-                <div class="modal-footer justify-content-center">
-                  <a href="<?= base_url('variabel/hapus/'.$b['kode'].'') ?>"><button type="button" class="btn btn-danger tx-11 tx-uppercase pd-y-12 pd-x-25 tx-mont tx-medium">Hapus</button></a>
-                  <button type="button" class="btn btn-secondary tx-11 tx-uppercase pd-y-12 pd-x-25 tx-mont tx-medium" data-dismiss="modal">Close</button>
-                </div>
-              </div>
-            </div><!-- modal-dialog -->
-          </div><!-- modal -->
-
-      <?= view('footer') ?>
-    </div><!-- br-mainpanel -->
+      </div><!-- br-pagebody -->
     <!-- ########## END: MAIN PANEL ########## -->
 
     <script src="<?= base_url('temp/lib/jquery/jquery.min.js') ?>"></script>

@@ -26,6 +26,15 @@ class Krs_Model extends Model
     {
          return $this->db->table('krs')
          ->join('matakuliah', 'matakuliah.id_matakuliah = krs.id_matakuliah')  
+         ->where('nim', $id)
+         ->where('semester', $smt)
+         ->get()->getResultArray(); 
+    }
+
+    public function getPrint($id, $smt)
+    {
+         return $this->db->table('krs')
+         ->join('matakuliah', 'matakuliah.id_matakuliah = krs.id_matakuliah')  
          ->join('mahasiswa', 'mahasiswa.id_mahasiswa = krs.id_mahasiswa')       
          ->where('nim', $id)
          ->where('semester', $smt)

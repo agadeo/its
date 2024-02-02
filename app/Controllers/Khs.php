@@ -22,4 +22,18 @@ class KHS extends BaseController {
         
         return view('khs_view',$data);
     }
+
+    public function print($id, $smt){
+        $model = new Mahasiswa_Model();
+        $model2 = new Krs_Model();
+        $data['data'] = $model->getKhs($id, $smt);
+        $data['result'] = $model->join('jurusan', 'jurusan.id_jurusan = mahasiswa.id_jurusan')->join('dosen', 'dosen.jabatan = mahasiswa.id_jurusan')->where('nim', $id)->first();
+        $data['data2'] = $model2->getPrint($id, $smt);
+
+        // echo "<pre>";
+        // print_r($d);
+        // echo "</pre>";
+
+        return view('khs_print',$data);
+    }
 }

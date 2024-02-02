@@ -37,4 +37,15 @@ class Mahasiswa_Model extends Model
          ->select('semester as semester')
          ->get()->getResultArray();  
     }
+
+    public function getMah($id)
+    {
+         return $this->db->table('mahasiswa')
+         ->join('jurusan', 'jurusan.id_jurusan = mahasiswa.id_jurusan')
+         ->join('dosen', 'dosen.jabatan = mahasiswa.id_jurusan')
+         ->where('nim', $id)
+         ->get()->getResultArray(); 
+    }
+
+
 }

@@ -58,7 +58,7 @@
 </tr>
 <tr>    <td width="1%" align="right"><img src="<?= base_url('logo_its.jpg') ?>" width="60"></td>
 
-<td  align="center"><h4 style='font-family:"Times New Roman"'>PERKUMPULAN NAHDLATUL ULAMA <br>INSTITUT TEKNOLOGI DAN SAINS NAHDLATUL ULAMA KALIMANTAN <br> (Kepmendikbudristek RI No. 71/E/O/2022) <br><font size="2" style='font-family:"Times New Roman"'>Jl. RTA Milono km.3,5, Kel. Langkai, Kec. Pahandut, Palangka Raya, 73111, e-mail: itsnukalimantan@gmail.com</font></h4>
+<td  align="center"><h4 style='font-family:"Times New Roman"'>PERKUMPULAN NAHDLATUL ULAMA <br>INSTITUT TEKNOLOGI DAN SAINS NAHDLATUL ULAMA KALIMANTAN <br> (Kepmendikbudristek RI No. 71/E/O/2022) <br><font size="2" style='font-family:"Times New Roman"'>Jl. RTA Milono km 3.5, Kel. Langkai, Kec. Pahandut, Palangka Raya, 73111, e-mail: itsnukalimantan@gmail.com</font></h4>
 </td>
 </tr>
 </table>
@@ -111,7 +111,12 @@
                 <p style='margin:0cm;margin-bottom:.0001pt;font-size:13px;font-family:"Times New Roman",sans-serif;margin-left:3.0pt;'><span style='font-size:15px;font-family:"Times New Roman",sans-serif;'>Semester</span></p>
             </td>
             <td style="width: 211pt;padding: 0cm;height: 19.85pt;vertical-align: bottom;">
-                <p style='margin:0cm;margin-bottom:.0001pt;font-size:13px;font-family:"Times New Roman",sans-serif;margin-left:37.0pt;'><span style='font-size:15px;font-family:"Times New Roman",sans-serif;'>: Ganjil</span></p>
+                <p style='margin:0cm;margin-bottom:.0001pt;font-size:13px;font-family:"Times New Roman",sans-serif;margin-left:37.0pt;'><span style='font-size:15px;font-family:"Times New Roman",sans-serif;'>: <?php $number = $data3['semester']; if($number % 2 == 0){ 
+        echo "Genap";
+    }
+    else{
+        echo "Ganjil";
+    } ?> </span></p>
             </td>
             <td style="width: 151pt;padding: 0cm;height: 19.85pt;vertical-align: bottom;">
                 <p style='margin:0cm;margin-bottom:.0001pt;font-size:13px;font-family:"Times New Roman",sans-serif;'><span style='font-size:16px;font-family:"Times New Roman",serif;'>&nbsp;</span></p>
@@ -239,8 +244,8 @@
                 <p style='margin:0cm;margin-bottom:.0001pt;font-size:13px;font-family:"Times New Roman",sans-serif;'><span style='font-size:9px;font-family:"Times New Roman",serif;'>&nbsp;</span></p>
             </td>
         </tr>
-        <?php  foreach ($data2 as $d) {
-             $no=1;
+        <?php $no=1; foreach ($data2 as $d) {
+             
              if (round($d['hasil']) >= 85) {
                 $hasill ="A";
               }elseif (round($d['hasil']) >= 80 && round($d['hasil']) < 85) {
@@ -608,3 +613,7 @@
 <p><span style='font-size:11px;font-family:"Times New Roman",sans-serif;'><br>&nbsp;</span></p>
 <p style='margin:0cm;margin-bottom:.0001pt;font-size:13px;font-family:"Times New Roman",sans-serif;line-height:5.75pt;'><span style='font-size:16px;font-family:"Times New Roman",serif;'>&nbsp;</span></p>
 <p style='margin:0cm;margin-bottom:.0001pt;font-size:13px;font-family:"Times New Roman",sans-serif;margin-left:128.0pt;'><em><span style='font-size:10px;font-family:"Courier New";'>KHS ini resmi setelah mendapatkan tanda-tangan dari Ketua Program Studi</span></em></p>
+
+    <script>
+        window.print();
+    </script>

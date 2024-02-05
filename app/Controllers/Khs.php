@@ -19,6 +19,7 @@ class KHS extends BaseController {
     public function view($id, $smt){
         $model = new Krs_Model();
         $data['data'] = $model->getKhs($id, $smt);
+        $data['data2'] = $model->join('matakuliah', 'matakuliah.id_matakuliah = krs.id_matakuliah')->join('mahasiswa', 'mahasiswa.id_mahasiswa = krs.id_mahasiswa')->where('nim', $id)->where('semester', $smt)->first();
         
         return view('khs_view',$data);
     }
@@ -26,14 +27,20 @@ class KHS extends BaseController {
     public function print($id, $smt){
         $model = new Mahasiswa_Model();
         $model2 = new Krs_Model();
+
         $data['data'] = $model->getKhs($id, $smt);
         $data['result'] = $model->join('jurusan', 'jurusan.id_jurusan = mahasiswa.id_jurusan')->join('dosen', 'dosen.jabatan = mahasiswa.id_jurusan')->where('nim', $id)->first();
         $data['data2'] = $model2->getPrint($id, $smt);
-
         // echo "<pre>";
         // print_r($d);
         // echo "</pre>";
 
+        $data['data3'] = $model2->join('matakuliah', 'matakuliah.id_matakuliah = krs.id_matakuliah')->join('mahasiswa', 'mahasiswa.id_mahasiswa = krs.id_mahasiswa')->where('nim', $id)->where('semester', $smt)->first();
+
         return view('khs_print',$data);
+
+
+
+
     }
 }

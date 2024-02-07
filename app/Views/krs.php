@@ -33,7 +33,7 @@
                   <td><?= $no;?></td>
                   <td><?= $b['nama'];?></td>
                   <td><?= $b['nama_jurusan'];?></td>
-                  <td><a href="<?= base_url('Krs/view/'.$b['nim'].'') ?>"><button class="btn btn-info">Tambah MK</button></a>
+                  <td><a href="<?= base_url('Krs/view/'.$b['nim'].'') ?>"><button class="btn btn-info">KRS ONLINE </button></a>
                     </td>
                 </tr><?php $no++; } ?>
               </tbody>

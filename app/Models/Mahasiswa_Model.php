@@ -20,6 +20,19 @@ class Mahasiswa_Model extends Model
          ->get()->getResultArray(); 
     }
 
+        public function getDataM()
+    {
+         return $this->db->table('mahasiswa')
+         ->join('jurusan', 'jurusan.id_jurusan = mahasiswa.id_jurusan')
+         ->join('krs', 'krs.id_mahasiswa = mahasiswa.id_mahasiswa')
+         ->join('matakuliah', 'matakuliah.id_matakuliah = krs.id_matakuliah')
+         ->where('id_priode','3')
+         ->groupBy('nim')
+          ->select('nama as nama, count(matakuliah) as jum')
+
+         ->get()->getResultArray(); 
+    }
+
     public function getKhs()
     {
          return $this->db->table('krs')

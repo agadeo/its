@@ -22,10 +22,14 @@ class Matakuliah_Model extends Model
          ->get()->getResultArray(); 
     }
 
-    public function getdrop()
+    public function getdrop($jur, $smt)
     {
-       $query = $this->db->query('select * from matakuliah');
-       return $query->getResult();
+         return $this->db->table('matakuliah')
+         ->join('jurusan', 'jurusan.id_jurusan = matakuliah.jurusan')
+         ->orderBy('matakuliah', 'ASC')
+         ->where('smt', $smt)
+         ->where('id_jurusan', $jur)
+         ->get()->getResult(); 
     }
 
     public function get_by_mhs()

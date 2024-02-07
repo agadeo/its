@@ -22,6 +22,16 @@ class Krs_Model extends Model
          ->get()->getResultArray(); 
     }
 
+    public function getRow()
+    {
+         return $this->db->table('krs')
+         ->join('matakuliah', 'matakuliah.id_matakuliah = krs.id_matakuliah')  
+         ->join('mahasiswa', 'mahasiswa.id_mahasiswa = krs.id_mahasiswa')       
+         ->where('nim', '22103001002')
+         ->where('id_priode', '3')
+         ->countAllResults(); 
+    }
+
     public function getKhs($id, $smt)
     {
          return $this->db->table('krs')
@@ -32,6 +42,15 @@ class Krs_Model extends Model
          ->get()->getResultArray(); 
     }
 
+    public function getTranskip($id)
+    {
+         return $this->db->table('krs')
+         ->join('matakuliah', 'matakuliah.id_matakuliah = krs.id_matakuliah')  
+         ->join('mahasiswa', 'mahasiswa.id_mahasiswa = krs.id_mahasiswa')       
+         ->where('nim', $id)
+         ->get()->getResultArray(); 
+    }
+
     public function getPrint($id, $smt)
     {
          return $this->db->table('krs')
@@ -39,6 +58,15 @@ class Krs_Model extends Model
          ->join('mahasiswa', 'mahasiswa.id_mahasiswa = krs.id_mahasiswa')       
          ->where('nim', $id)
          ->where('semester', $smt)
+         ->get()->getResultArray(); 
+    }
+
+    public function getPrint_t($id)
+    {
+         return $this->db->table('krs')
+         ->join('matakuliah', 'matakuliah.id_matakuliah = krs.id_matakuliah')  
+         ->join('mahasiswa', 'mahasiswa.id_mahasiswa = krs.id_mahasiswa')       
+         ->where('nim', $id)
          ->get()->getResultArray(); 
     }
 

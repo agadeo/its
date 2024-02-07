@@ -16,20 +16,19 @@
 
       <div class="br-pagebody">
         <div class="br-section-wrapper">
-          <h6 class="br-section-label"><b>Data Matakuliah yang Sudah ditempuh</b></h6><hr>
-          <?php if ($data4 == 0) {
-            $a =  '';
-            $b =  '';
-            $c = '';
-          } else {
-            $a = $data2['nim']; 
-            $b = $data2['id_jurusan']; 
-            $c = $data3['id_priode']; 
-            $d = $data3['smt'];
-          }
-           ?>
-          <a href="/krs/add/<?= $a; ?>/<?= $b; ?>/<?= $c; ?>/<?= $d; ?>"><button class="btn btn-info" <?= $cek; ?>>KRS ONLINE </button></a>
-          <a href="/krs/cetak"><button class="btn btn-warning">Cetak KRS </button></a><hr>
+          <h6 class="br-section-label">Data Transkip Nilai</h6><hr>
+          <a href="/khs/print_t/<?= $data2['nim']; ?>"><button class="btn btn-warning">Cetak Transkip </button></a>||                  
+          <div class="btn-group">
+                    <button type="button" class="btn btn-info dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                      KHS
+                    </button>
+            <div class="dropdown-menu">
+                      <?php foreach ($datapriode as $news) {    ?>
+                      <a class="dropdown-item" href="<?= base_url('Khs/view/'.$data2['nim'].'/'.$news['id_priode'].'') ?>"><?= $news['tahun_akademik'];?> - <?= $news['smt'];?></a>
+                    <?php  } ?> 
+            </div>
+          </div>
+<hr>
           <div class="table-wrapper">
             <table id="datatable1" class="table display responsive nowrap">
               <thead>
@@ -39,6 +38,7 @@
                   <th class="wd-5p">Matakuliah</th>
                   <th class="wd-5p">SKS</th>
                   <th class="wd-5p">Semester</th>
+                  <th class="wd-5p">Nilai</th>
                 </tr>
               </thead>
               
@@ -49,7 +49,27 @@
                   <td><?= $b['matakuliah'];?></td>
                   <td><?= $b['sks'];?></td>
                   <td><?= $b['semester'];?></td>
-                    </td>
+                  <td><?php if (round($b['hasil']) >= 85) {
+                echo "A";
+              }elseif (round($b['hasil']) >= 80 && round($b['hasil']) < 85) {
+                echo "A-";
+              } elseif (round($b['hasil']) >= 75 && round($b['hasil']) < 80) {
+                echo "B+";
+              } elseif (round($b['hasil']) >= 70 && round($b['hasil']) < 75) {
+                echo "B";
+              } elseif (round($b['hasil']) >= 65 && round($b['hasil']) < 70) {
+                echo "B-";
+              } elseif (round($b['hasil']) >= 60 && round($b['hasil']) < 65) {
+                echo "C+";
+              } elseif (round($b['hasil']) >= 55 && round($b['hasil']) < 60) {
+                echo "C";
+              } elseif (round($b['hasil']) >= 50 && round($b['hasil']) < 55) {
+                echo "C-";
+              } elseif (round($b['hasil']) >= 40 && round($b['hasil']) < 50) {
+                echo "D";
+              } elseif (round($b['hasil']) < 40) {
+                echo "E";
+              } ?></td>
                 </tr><?php $no++; } ?>
               </tbody>
             </table>
@@ -58,6 +78,26 @@
 
 
       </div><!-- br-pagebody -->
+          <!-- SMALL MODAL -->
+          <div id="modaldemo2" class="modal fade">
+            <div class="modal-dialog modal-sm modal-dialog-centered" role="document">
+              <div class="modal-content bd-0 tx-14">
+                <div class="modal-header pd-x-20">
+                  <h6 class="tx-14 mg-b-0 tx-uppercase tx-inverse tx-bold">Notice</h6>
+                  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                  </button>
+                </div>
+                <div class="modal-body pd-20">
+                  <p class="mg-b-5">Apakah yakin data ingin dihapus?</p>
+                </div>
+                <div class="modal-footer justify-content-center">
+                  <a href="<?= base_url('variabel/hapus/'.$b['id_matakuliah'].'') ?>"><button type="button" class="btn btn-danger tx-11 tx-uppercase pd-y-12 pd-x-25 tx-mont tx-medium">Hapus</button></a>
+                  <button type="button" class="btn btn-secondary tx-11 tx-uppercase pd-y-12 pd-x-25 tx-mont tx-medium" data-dismiss="modal">Close</button>
+                </div>
+              </div>
+            </div><!-- modal-dialog -->
+          </div><!-- modal -->
 
       <?= view('footer') ?>
     </div><!-- br-mainpanel -->

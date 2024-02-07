@@ -16,7 +16,7 @@
 
       <div class="br-pagebody">
         <div class="br-section-wrapper">
-          <h6 class="br-section-label">Data KRS</h6>
+          <h6 class="br-section-label">Data KHS</h6>
           <div class="table-wrapper">
             <table id="datatable1" class="table display responsive nowrap">
               <thead>
@@ -33,17 +33,7 @@
                   <td><?= $no;?></td>
                   <td><?= $b['nama'];?></td>
                   <td><?= $b['nama_jurusan'];?></td>
-                  <td>
-                  <div class="btn-group">
-                    <button type="button" class="btn btn-info dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                      Pilih Semester
-                    </button>
-                    <div class="dropdown-menu">
-                      <?php foreach ($datasmt as $news) {    ?>
-                      <a class="dropdown-item" href="<?= base_url('Khs/view/'.$b['nim'].'/'.$news['semester'].'') ?>"><?= $news['semester'];?></a>
-                    <?php  } ?> 
-                    </div>
-                  </div>
+                  <td><a href="<?= base_url('Khs/transkip/'.$b['nim'].'') ?>"><button class="btn btn-info">TRANSKIP </button></a>
                     </td>
                 </tr><?php $no++; } ?>
               </tbody>

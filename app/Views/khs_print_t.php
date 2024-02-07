@@ -65,7 +65,7 @@
 <hr size="2" width="100%" align="center" color="black">
 <p style='margin:0cm;margin-bottom:.0001pt;font-size:13px;font-family:"Times New Roman",sans-serif;line-height:10.0pt;'><span style='font-size:16px;font-family:"Times New Roman",serif;'>&nbsp;</span></p>
 <p style='margin:0cm;margin-bottom:.0001pt;font-size:13px;font-family:"Times New Roman",sans-serif;line-height:10.55pt;'><span style='font-size:16px;font-family:"Times New Roman",serif;'>&nbsp;</span></p>
-<p style='margin:0cm;margin-bottom:.0001pt;font-size:13px;font-family:"Times New Roman",sans-serif;margin-right:3.0pt;text-align:center;'><strong><span style='font-size:16px;font-family:"Times New Roman",sans-serif;'>KARTU HASIL STUDI (KHS) MAHASISWA</span></strong></p>
+<p style='margin:0cm;margin-bottom:.0001pt;font-size:13px;font-family:"Times New Roman",sans-serif;margin-right:3.0pt;text-align:center;'><strong><span style='font-size:16px;font-family:"Times New Roman",sans-serif;'>TRANSKIP NILAI SEMENTARA MAHASISWA</span></strong></p>
 <p style='margin:0cm;margin-bottom:.0001pt;font-size:13px;font-family:"Times New Roman",sans-serif;line-height:18.35pt;'><span style='font-size:16px;font-family:"Times New Roman",serif;'>&nbsp;</span></p>
 <table style="border: none;border-collapse:collapse;">
     <tbody>
@@ -80,10 +80,10 @@
                 <p style='margin:0cm;margin-bottom:.0001pt;font-size:13px;font-family:"Times New Roman",sans-serif;margin-left:37.0pt;'><span style='font-size:15px;font-family:"Times New Roman",sans-serif;'>: <?php echo $result['nama']?></span></p>
             </td>
             <td style="width: 100pt;padding: 0cm;height: 12.65pt;vertical-align: bottom;">
-                <p style='margin:0cm;margin-bottom:.0001pt;font-size:13px;font-family:"Times New Roman",sans-serif;margin-left:22.0pt;'><span style='font-size:15px;font-family:"Times New Roman",sans-serif;'>Fakultas</span></p>
+                <p style='margin:0cm;margin-bottom:.0001pt;font-size:13px;font-family:"Times New Roman",sans-serif;margin-left:22.0pt;'><span style='font-size:15px;font-family:"Times New Roman",sans-serif;'>Prodi</span></p>
             </td>
             <td colspan="5" style="width: 174pt;padding: 0cm;height: 12.65pt;vertical-align: bottom;">
-                <p style='margin:0cm;margin-bottom:.0001pt;font-size:13px;font-family:"Times New Roman",sans-serif;margin-left:10.0pt;'><span style='font-size:15px;font-family:"Times New Roman",sans-serif;'>: TEKNIK</span></p>
+                <p style='margin:0cm;margin-bottom:.0001pt;font-size:13px;font-family:"Times New Roman",sans-serif;margin-left:10.0pt;'><span style='font-size:15px;font-family:"Times New Roman",sans-serif;'>: <?php echo $result['nama_jurusan']?> - S1</span></p>
             </td>
         </tr>
         <tr>
@@ -96,11 +96,11 @@
             <td colspan="2" style="width: 211pt;padding: 0cm;height: 19.85pt;vertical-align: bottom;">
                 <p style='margin:0cm;margin-bottom:.0001pt;font-size:13px;font-family:"Times New Roman",sans-serif;margin-left:37.0pt;'><span style='font-size:15px;font-family:"Times New Roman",sans-serif;'>: <?php echo $result['nim']?></span></p>
             </td>
-            <td style="width: 100pt;padding: 0cm;height: 19.85pt;vertical-align: bottom;">
-                <p style='margin:0cm;margin-bottom:.0001pt;font-size:13px;font-family:"Times New Roman",sans-serif;margin-left:22.0pt;'><span style='font-size:15px;font-family:"Times New Roman",sans-serif;'>Prodi</span></p>
+            <td style="width: 200pt;padding: 0cm;height: 19.85pt;vertical-align: bottom;">
+                <p style='margin:0cm;margin-bottom:.0001pt;font-size:13px;font-family:"Times New Roman",sans-serif;margin-left:22.0pt;'><span style='font-size:15px;font-family:"Times New Roman",sans-serif;'>Total SKS</span></p>
             </td>
             <td colspan="5" style="width: 135pt;padding: 0cm;height: 19.85pt;vertical-align: bottom;">
-                <p style='margin:0cm;margin-bottom:.0001pt;font-size:13px;font-family:"Times New Roman",sans-serif;margin-left:10.0pt;'><span style='font-size:15px;font-family:"Times New Roman",sans-serif;'>: <?php echo $result['nama_jurusan']?> - S1</span></p>
+                <p style='margin:0cm;margin-bottom:.0001pt;font-size:13px;font-family:"Times New Roman",sans-serif;margin-left:10.0pt;'><span style='font-size:15px;font-family:"Times New Roman",sans-serif;'>: <?php  echo array_sum($jumlah);?> SKS</span></p>
             </td>
             <td style="width: 40pt;padding: 0cm;height: 19.85pt;vertical-align: bottom;">
                 <p style='margin:0cm;margin-bottom:.0001pt;font-size:13px;font-family:"Times New Roman",sans-serif;'><span style='font-size:16px;font-family:"Times New Roman",serif;'>&nbsp;</span></p>
@@ -108,42 +108,19 @@
         </tr>
         <tr>
             <td colspan="2" style="width: 54pt;padding: 0cm;height: 19.85pt;vertical-align: bottom;">
-                <p style='margin:0cm;margin-bottom:.0001pt;font-size:13px;font-family:"Times New Roman",sans-serif;margin-left:3.0pt;'><span style='font-size:15px;font-family:"Times New Roman",sans-serif;'>Semester</span></p>
+                <p style='margin:0cm;margin-bottom:.0001pt;font-size:13px;font-family:"Times New Roman",sans-serif;margin-left:3.0pt;'><span style='font-size:15px;font-family:"Times New Roman",sans-serif;'>Fakultas</span></p>
             </td>
             <td style="width: 211pt;padding: 0cm;height: 19.85pt;vertical-align: bottom;">
-                <p style='margin:0cm;margin-bottom:.0001pt;font-size:13px;font-family:"Times New Roman",sans-serif;margin-left:37.0pt;'><span style='font-size:15px;font-family:"Times New Roman",sans-serif;'>: <?= $data3['smt'] ?> </span></p>
+                <p style='margin:0cm;margin-bottom:.0001pt;font-size:13px;font-family:"Times New Roman",sans-serif;margin-left:37.0pt;'><span style='font-size:15px;font-family:"Times New Roman",sans-serif;'>: TEKNIK </span></p>
             </td>
             <td style="width: 151pt;padding: 0cm;height: 19.85pt;vertical-align: bottom;">
                 <p style='margin:0cm;margin-bottom:.0001pt;font-size:13px;font-family:"Times New Roman",sans-serif;'><span style='font-size:16px;font-family:"Times New Roman",serif;'>&nbsp;</span></p>
             </td>
             <td style="width: 100pt;padding: 0cm;height: 19.85pt;vertical-align: bottom;">
-                <p style='margin:0cm;margin-bottom:.0001pt;font-size:13px;font-family:"Times New Roman",sans-serif;margin-left:22.0pt;'><span style='font-size:15px;font-family:"Times New Roman",sans-serif;'>Total SKS</span></p>
+                <p style='margin:0cm;margin-bottom:.0001pt;font-size:13px;font-family:"Times New Roman",sans-serif;margin-left:22.0pt;'><span style='font-size:15px;font-family:"Times New Roman",sans-serif;'>IPK</span></p>
             </td>
             <td colspan="2" style="width: 84pt;padding: 0cm;height: 19.85pt;vertical-align: bottom;">
-                <p style='margin:0cm;margin-bottom:.0001pt;font-size:13px;font-family:"Times New Roman",sans-serif;margin-left:10.0pt;'><span style='font-size:15px;font-family:"Times New Roman",sans-serif;'>: <?php  echo array_sum($jumlah);?> SKS</span></p>
-            </td>
-            <td style="width: 5pt;padding: 0cm;height: 19.85pt;vertical-align: bottom;">
-                <p style='margin:0cm;margin-bottom:.0001pt;font-size:13px;font-family:"Times New Roman",sans-serif;'><span style='font-size:16px;font-family:"Times New Roman",serif;'>&nbsp;</span></p>
-            </td>
-            <td style="width: 46pt;padding: 0cm;height: 19.85pt;vertical-align: bottom;">
-                <p style='margin:0cm;margin-bottom:.0001pt;font-size:13px;font-family:"Times New Roman",sans-serif;'><span style='font-size:16px;font-family:"Times New Roman",serif;'>&nbsp;</span></p>
-            </td>
-            <td style="width: 40pt;padding: 0cm;height: 19.85pt;vertical-align: bottom;">
-                <p style='margin:0cm;margin-bottom:.0001pt;font-size:13px;font-family:"Times New Roman",sans-serif;'><span style='font-size:16px;font-family:"Times New Roman",serif;'>&nbsp;</span></p>
-            </td>
-        </tr>
-        <tr>
-            <td colspan="4" style="width: 265pt;padding: 0cm;height: 19.85pt;vertical-align: bottom;">
-                <p style='margin:0cm;margin-bottom:.0001pt;font-size:13px;font-family:"Times New Roman",sans-serif;margin-left:3.0pt;'><span style='font-size:15px;font-family:"Times New Roman",sans-serif;'>Tahun Akademik : <?= $data3['tahun_akademik'] ?></span></p>
-            </td>
-            <td style="width: 100pt;padding: 0cm;height: 19.85pt;vertical-align: bottom;">
-                <p style='margin:0cm;margin-bottom:.0001pt;font-size:13px;font-family:"Times New Roman",sans-serif;margin-left:22.0pt;'><span style='font-size:15px;font-family:"Times New Roman",sans-serif;'>IP</span></p>
-            </td>
-            <td style="width: 46pt;padding: 0cm;height: 19.85pt;vertical-align: bottom;">
                 <p style='margin:0cm;margin-bottom:.0001pt;font-size:13px;font-family:"Times New Roman",sans-serif;margin-left:10.0pt;'><span style='font-size:15px;font-family:"Times New Roman",sans-serif;'>: <?php  echo round(array_sum($jumlah_nilai)/array_sum($jumlah),2,PHP_ROUND_HALF_DOWN);?></span></p>
-            </td>
-            <td style="width: 38pt;padding: 0cm;height: 19.85pt;vertical-align: bottom;">
-                <p style='margin:0cm;margin-bottom:.0001pt;font-size:13px;font-family:"Times New Roman",sans-serif;'><span style='font-size:16px;font-family:"Times New Roman",serif;'>&nbsp;</span></p>
             </td>
             <td style="width: 5pt;padding: 0cm;height: 19.85pt;vertical-align: bottom;">
                 <p style='margin:0cm;margin-bottom:.0001pt;font-size:13px;font-family:"Times New Roman",sans-serif;'><span style='font-size:16px;font-family:"Times New Roman",serif;'>&nbsp;</span></p>
@@ -533,8 +510,8 @@
             <td style="width: 60pt;background: rgb(229, 229, 229);padding: 0cm;height: 16.2pt;vertical-align: bottom;">
                 <p style='margin:0cm;margin-bottom:.0001pt;font-size:13px;font-family:"Times New Roman",sans-serif;'><span style='font-size:16px;font-family:"Times New Roman",serif;'>&nbsp;</span></p>
             </td>
-            <td style="width: 151pt;background: rgb(229, 229, 229);padding: 0cm;height: 16.2pt;vertical-align: bottom;">
-                <p style='margin:0cm;margin-bottom:.0001pt;font-size:13px;font-family:"Times New Roman",sans-serif;margin-left:30.0pt;'><span style='font-size:15px;font-family:"Times New Roman",sans-serif;'>Indeks Prestasi (IP)</span></p>
+            <td style="width: 200pt;background: rgb(229, 229, 229);padding: 0cm;height: 16.2pt;vertical-align: bottom;">
+                <p style='margin:0cm;margin-bottom:.0001pt;font-size:13px;font-family:"Times New Roman",sans-serif;margin-left:30.0pt;'><span style='font-size:15px;font-family:"Times New Roman",sans-serif;'>Indeks Prestasi Komulatif(IPK)</span></p>
             </td>
             <td style="width: 100pt;background: rgb(229, 229, 229);padding: 0cm;height: 16.2pt;vertical-align: bottom;">
                 <p style='margin:0cm;margin-bottom:.0001pt;font-size:13px;font-family:"Times New Roman",sans-serif;'><span style='font-size:16px;font-family:"Times New Roman",serif;'>&nbsp;</span></p>
@@ -591,23 +568,21 @@
 <p style='margin:0cm;margin-bottom:.0001pt;font-size:13px;font-family:"Times New Roman",sans-serif;margin-left:380.0pt;'><span style='font-family:"Times New Roman",sans-serif;'>Palangka Raya, <?php setlocale(LC_TIME, 'id_ID.utf8'); date_default_timezone_set('Asia/Jakarta');  echo date('d F Y');; ?></span></p>
 <p style='margin:0cm;margin-bottom:.0001pt;font-size:13px;font-family:"Times New Roman",sans-serif;line-height:2.65pt;'><span style='font-size:16px;font-family:"Times New Roman",serif;'>&nbsp;</span></p>
 <p style='margin:0cm;margin-bottom:.0001pt;font-size:13px;font-family:"Times New Roman",sans-serif;line-height:2.65pt;'><span style='font-size:16px;font-family:"Times New Roman",serif;'>&nbsp;</span></p>
-<p style='margin:0cm;margin-bottom:.0001pt;font-size:13px;font-family:"Times New Roman",sans-serif;margin-left:380.0pt;'><span style='font-family:"Times New Roman",sans-serif;'>Ketua Program Studi,</span></p>
+<p style='margin:0cm;margin-bottom:.0001pt;font-size:13px;font-family:"Times New Roman",sans-serif;margin-left:380.0pt;'><span style='font-family:"Times New Roman",sans-serif;'>Dekan,</span></p>
 <p style='margin:0cm;margin-bottom:.0001pt;font-size:13px;font-family:"Times New Roman",sans-serif;line-height:10.0pt;'><span style='font-size:16px;font-family:"Times New Roman",serif;'>&nbsp;</span></p>
 <p style='margin:0cm;margin-bottom:.0001pt;font-size:13px;font-family:"Times New Roman",sans-serif;line-height:10.0pt;'><span style='font-size:16px;font-family:"Times New Roman",serif;'>&nbsp;</span></p>
 <p style='margin:0cm;margin-bottom:.0001pt;font-size:13px;font-family:"Times New Roman",sans-serif;line-height:10.0pt;'><span style='font-size:16px;font-family:"Times New Roman",serif;'>&nbsp;</span></p>
 <p style='margin:0cm;margin-bottom:.0001pt;font-size:13px;font-family:"Times New Roman",sans-serif;line-height:10.0pt;'><span style='font-size:16px;font-family:"Times New Roman",serif;'>&nbsp;</span></p>
 <p style='margin:0cm;margin-bottom:.0001pt;font-size:13px;font-family:"Times New Roman",sans-serif;line-height:10.85pt;'><span style='font-size:16px;font-family:"Times New Roman",serif;'>&nbsp;</span></p>
-<p style='margin:0cm;margin-bottom:.0001pt;font-size:13px;font-family:"Times New Roman",sans-serif;margin-left:380.0pt;'><span style='font-family:"Times New Roman",sans-serif;'><?php echo $result['nama_dosen']?></span></p>
+<p style='margin:0cm;margin-bottom:.0001pt;font-size:13px;font-family:"Times New Roman",sans-serif;margin-left:380.0pt;'><span style='font-family:"Times New Roman",sans-serif;'>Erik Setiawan, ST., MT</span></p>
 <p style='margin:0cm;margin-bottom:.0001pt;font-size:13px;font-family:"Times New Roman",sans-serif;line-height:2.65pt;'><span style='font-size:16px;font-family:"Times New Roman",serif;'>&nbsp;</span></p>
-<p style='margin:0cm;margin-bottom:.0001pt;font-size:13px;font-family:"Times New Roman",sans-serif;margin-left:380.0pt;'><span style='font-family:"Times New Roman",sans-serif;'>NIDN.<?php echo $result['nip']?></span></p>
+<p style='margin:0cm;margin-bottom:.0001pt;font-size:13px;font-family:"Times New Roman",sans-serif;margin-left:380.0pt;'><span style='font-family:"Times New Roman",sans-serif;'>NIDN. 1113099002</span></p>
 <p style='margin:0cm;margin-bottom:.0001pt;font-size:13px;font-family:"Times New Roman",sans-serif;line-height:5.15pt;'><span style='font-size:16px;font-family:"Times New Roman",serif;'>&nbsp;</span></p>
-<p style='margin:0cm;margin-bottom:.0001pt;font-size:13px;font-family:"Times New Roman",sans-serif;margin-left:3.0pt;'><strong><span style='font-size:11px;font-family:"Times New Roman",sans-serif;'>Catatan :</span></strong></p>
 <p style='margin:0cm;margin-bottom:.0001pt;font-size:13px;font-family:"Times New Roman",sans-serif;line-height:.85pt;'><span style='font-size:16px;font-family:"Times New Roman",serif;'>&nbsp;</span></p>
-<p style='margin:0cm;margin-bottom:.0001pt;font-size:13px;font-family:"Times New Roman",sans-serif;margin-left:3.0pt;'><span style='font-size:11px;font-family:"Times New Roman",sans-serif;'>Jumlah maksimum SKS yang dapat diambil pada semester berikutnya berdasarkan indeks prestasi (IP)</span></p>
 <p style='margin:0cm;margin-bottom:.0001pt;font-size:13px;font-family:"Times New Roman",sans-serif;line-height:5.05pt;'><span style='font-size:16px;font-family:"Times New Roman",serif;'>&nbsp;</span></p>
 <p><span style='font-size:11px;font-family:"Times New Roman",sans-serif;'><br>&nbsp;</span></p>
 <p style='margin:0cm;margin-bottom:.0001pt;font-size:13px;font-family:"Times New Roman",sans-serif;line-height:5.75pt;'><span style='font-size:16px;font-family:"Times New Roman",serif;'>&nbsp;</span></p>
-<p style='margin:0cm;margin-bottom:.0001pt;font-size:13px;font-family:"Times New Roman",sans-serif;margin-left:128.0pt;'><em><span style='font-size:10px;font-family:"Courier New";'>KHS ini resmi setelah mendapatkan tanda-tangan dari Ketua Program Studi</span></em></p>
+<p style='margin:0cm;margin-bottom:.0001pt;font-size:13px;font-family:"Times New Roman",sans-serif;margin-left:128.0pt;'><em><span style='font-size:10px;font-family:"Courier New";'>Transkip Sementara ini resmi setelah mendapatkan tanda-tangan dari Dekan</span></em></p>
 
     <script>
         window.print();

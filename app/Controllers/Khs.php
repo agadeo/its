@@ -23,6 +23,7 @@ class KHS extends BaseController {
         $data['data'] = $model->getTranskip($id);
         $data['data2'] = $model->join('matakuliah', 'matakuliah.id_matakuliah = krs.id_matakuliah')->join('mahasiswa', 'mahasiswa.id_mahasiswa = krs.id_mahasiswa')->where('nim', $id)->first();
         $data['datapriode'] = $model2->getPriode($id);
+
         // echo "<pre>";
         // print_r($d);
         // echo "</pre>";

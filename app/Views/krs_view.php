@@ -29,7 +29,7 @@
           }
            ?>
           <a href="/krs/add/<?= $a; ?>/<?= $b; ?>/<?= $c; ?>/<?= $d; ?>"><button class="btn btn-info" <?= $cek; ?>>KRS ONLINE </button></a>
-          <a href="/krs/cetak"><button class="btn btn-warning">Cetak KRS </button></a><hr>
+          <hr>
           <div class="table-wrapper">
             <table id="datatable1" class="table display responsive nowrap">
               <thead>

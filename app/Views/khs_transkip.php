@@ -29,6 +29,71 @@
             </div>
           </div>
 <hr>
+        <?php  foreach ($data as $d) { 
+             if (round($d['hasil']) >= 85) {
+                $hasill ="A";
+              }elseif (round($d['hasil']) >= 80 && round($d['hasil']) < 85) {
+                $hasill ="A-";
+              } elseif (round($d['hasil']) >= 75 && round($d['hasil']) < 80) {
+                $hasill ="B+";
+              } elseif (round($d['hasil']) >= 70 && round($d['hasil']) < 75) {
+                $hasill ="B";
+              } elseif (round($d['hasil']) >= 65 && round($d['hasil']) < 70) {
+                $hasill ="B-";
+              } elseif (round($d['hasil']) >= 60 && round($d['hasil']) < 65) {
+                $hasill ="C+";
+              } elseif (round($d['hasil']) >= 55 && round($d['hasil']) < 60) {
+                $hasill ="C";
+              } elseif (round($d['hasil']) >= 50 && round($d['hasil']) < 55) {
+                $hasill ="C-";
+              } elseif (round($d['hasil']) >= 40 && round($d['hasil']) < 50) {
+                $hasill ="D";
+              } elseif (round($d['hasil']) < 40) {
+                $hasill ="E";
+              } 
+                    if ($hasill =='A') {
+                    $total= "4.00";
+                } elseif ($hasill =='A-') {
+                    $total= "3.70";
+                }elseif ($hasill =='B+') {
+                    $total= "3.30";
+                }elseif ($hasill =='B') {
+                    $total= "3.00";
+                }elseif ($hasill =='B-') {
+                    $total= "2.70";
+                }elseif ($hasill =='C+') {
+                    $total= "2.30";
+                }elseif ($hasill =='C') {
+                    $total= "2.00";
+                }elseif ($hasill =='C-') {
+                    $total= "1.70";
+                }elseif ($hasill =='D') {
+                    $total= "1.00";
+                }else{
+                    $total= "0";
+                }
+                          $satu = $d['sks']; 
+                          $gol = $satu*$total;
+                          
+            $jumlah[] =$d['sks'];
+            $jumlah_nilai[] =$gol;
+         } 
+        ?>
+        
+              <div class="row">
+                <div class="col-sm-4">
+                  <h6 class="card-title tx-uppercase tx-16">Indeks Prestasi Kumulatif (IPK)</h6>
+                  <center><p class="display-4 tx-medium tx-inverse mg-b-5 tx-lato"><?php  echo round(array_sum($jumlah_nilai)/array_sum($jumlah),2,PHP_ROUND_HALF_DOWN);?></p></center><br>
+                </div><!-- col-6 -->
+                <div class="col-sm-4">
+                  <h6 class="card-title tx-uppercase tx-16">Jumlah SKS Sudah Ditempuh</h6>
+                  <center><p class="display-4 tx-medium tx-inverse mg-b-5 tx-lato"><?php  echo round(array_sum($jumlah),2,PHP_ROUND_HALF_DOWN);?> SKS</p></center><br>
+                </div><!-- col-6 -->
+                <div class="col-sm-4 mg-t-20 mg-sm-t-0 d-flex align-items-center justify-content-center">
+                </div><!-- col-6 -->
+              </div><!-- row -->
+
+        <hr>
           <div class="table-wrapper">
             <table id="datatable1" class="table display responsive nowrap">
               <thead>
